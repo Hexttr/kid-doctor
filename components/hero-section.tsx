@@ -28,12 +28,12 @@ export function HeroSection() {
       <div className="relative mx-auto flex min-h-[calc(100vh-1rem)] max-w-7xl flex-col justify-between gap-8 px-6 md:gap-10 md:px-10">
         <header className="flex flex-col gap-4 px-2 py-3 md:flex-row md:items-center md:justify-between">
           <div className="flex items-center gap-4">
-            <div className="flex size-[9rem] items-center justify-center overflow-hidden rounded-[1.8rem] border border-white/18 bg-white p-2 shadow-[0_18px_42px_rgba(2,6,23,0.22)]">
+            <div className="flex size-[6.75rem] items-center justify-center overflow-hidden rounded-[1.55rem] border border-white/18 bg-white p-1.5 shadow-[0_18px_42px_rgba(2,6,23,0.22)]">
               <Image
                 src="/images/logo.png"
                 alt="НМИЦ здоровья детей"
-                width={128}
-                height={128}
+                width={96}
+                height={96}
                 className="h-full w-full object-contain"
                 priority
               />
