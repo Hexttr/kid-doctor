@@ -8,15 +8,13 @@ export function Footer() {
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-xl">
             <div className="flex items-center gap-4">
-              <div className="flex size-14 items-center justify-center overflow-hidden rounded-2xl border border-slate-200 bg-white p-2 shadow-sm">
-                <Image
-                  src="/images/logo.png"
-                  alt="НМИЦ здоровья детей"
-                  width={48}
-                  height={48}
-                  className="h-10 w-10"
-                />
-              </div>
+              <Image
+                src="/images/logo.png"
+                alt="НМИЦ здоровья детей"
+                width={96}
+                height={96}
+                className="h-20 w-20 object-contain"
+              />
               <div>
                 <p className="font-semibold text-slate-950">НМИЦ здоровья детей</p>
                 <p className="text-sm text-slate-500">Минздрава России</p>

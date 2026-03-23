@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { ArrowRight, Sparkles } from "lucide-react"
+import { Brain, Database, FileText, Waypoints } from "lucide-react"
 
 import {
   type CarouselApi,
@@ -15,10 +15,10 @@ import { projects } from "@/lib/projects"
 import { ProjectCard } from "./project-card"
 
 const portfolioHighlights = [
-  "ИИ и поддержка принятия решений",
-  "Регистры и референтные базы данных",
-  "Единая ЭМК и федеральные интеграции",
-  "Управленческая аналитика и профосмотры",
+  { title: "ИИ и поддержка принятия решений", icon: Brain },
+  { title: "Регистры и референтные базы данных", icon: Database },
+  { title: "Единая ЭМК и федеральные интеграции", icon: FileText },
+  { title: "Управленческая аналитика и профосмотры", icon: Waypoints },
 ]
 
 export function ProjectsSection() {
@@ -53,7 +53,7 @@ export function ProjectsSection() {
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
           <div className="space-y-6">
-            <div className="inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm">
+            <div className="inline-flex items-center rounded-full border border-slate-950/10 bg-slate-950 px-4 py-2 text-sm font-medium text-white shadow-sm">
               Портфель инициатив
             </div>
             <div>
@@ -68,43 +68,21 @@ export function ProjectsSection() {
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
-            {portfolioHighlights.map((item) => (
+            {portfolioHighlights.map(({ title, icon: Icon }) => (
               <div
-                key={item}
-                className="rounded-3xl border border-sky-100 bg-[linear-gradient(180deg,#ffffff_0%,#f2fbff_100%)] px-5 py-4 text-sm font-medium text-slate-700 shadow-[0_16px_40px_rgba(14,116,144,0.08)]"
+                key={title}
+                className="flex items-center gap-3 rounded-3xl border border-slate-950/10 bg-slate-950 px-5 py-4 text-sm font-medium text-white shadow-[0_16px_40px_rgba(15,23,42,0.14)]"
               >
-                {item}
+                <div className="flex size-10 items-center justify-center rounded-2xl bg-white/10 text-cyan-200">
+                  <Icon className="size-4" />
+                </div>
+                <span>{title}</span>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="relative mt-12 overflow-hidden rounded-[2.5rem] border border-sky-100 bg-[linear-gradient(145deg,#07111f_0%,#0b1f36_52%,#103b57_100%)] p-6 text-white shadow-[0_30px_110px_rgba(2,6,23,0.2)] md:p-8">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.16),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(59,130,246,0.18),transparent_34%)]" />
-          <div className="relative flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
-            <div className="space-y-3">
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/8 px-4 py-2 text-sm font-medium text-cyan-100 backdrop-blur">
-                <Sparkles className="size-4" />
-                Витрина приоритетных проектов
-              </div>
-              <div className="flex items-center gap-3 text-sm text-white/70">
-                <span>Крупный формат слайдов для детального просмотра инициатив</span>
-                <ArrowRight className="hidden size-4 lg:block" />
-              </div>
-            </div>
-
-            <div className="flex items-center gap-4">
-              <div className="hidden h-1.5 w-40 overflow-hidden rounded-full bg-white/12 md:block">
-                <span
-                  className="block h-full rounded-full bg-[linear-gradient(90deg,#38bdf8_0%,#22d3ee_100%)] transition-all duration-500"
-                  style={{ width: `${((current + 1) / projects.length) * 100}%` }}
-                />
-              </div>
-              <div className="rounded-full border border-white/12 bg-white/8 px-4 py-2 text-sm font-medium text-white/84 backdrop-blur">
-                Проект {current + 1} из {projects.length}
-              </div>
-            </div>
-          </div>
+        <div className="relative mt-12">
           <Carousel
             setApi={setApi}
             opts={{
@@ -121,13 +99,9 @@ export function ProjectsSection() {
               ))}
             </CarouselContent>
 
-            <CarouselPrevious className="left-5 top-1/2 z-10 hidden size-12 -translate-y-1/2 rounded-full border-white/14 bg-white/10 text-white shadow-[0_18px_40px_rgba(2,6,23,0.24)] backdrop-blur md:flex" />
-            <CarouselNext className="right-5 top-1/2 z-10 hidden size-12 -translate-y-1/2 rounded-full border-white/14 bg-white/10 text-white shadow-[0_18px_40px_rgba(2,6,23,0.24)] backdrop-blur md:flex" />
+            <CarouselPrevious className="left-5 top-1/2 z-10 hidden size-12 -translate-y-1/2 rounded-full border-slate-200 bg-white/92 text-slate-700 shadow-[0_18px_40px_rgba(15,23,42,0.16)] backdrop-blur md:flex" />
+            <CarouselNext className="right-5 top-1/2 z-10 hidden size-12 -translate-y-1/2 rounded-full border-slate-200 bg-white/92 text-slate-700 shadow-[0_18px_40px_rgba(15,23,42,0.16)] backdrop-blur md:flex" />
           </Carousel>
-
-          <div className="relative mt-6 text-sm text-white/68">
-            Используйте стрелки или жест перетаскивания, чтобы последовательно просматривать все инициативы.
-          </div>
         </div>
       </div>
     </section>

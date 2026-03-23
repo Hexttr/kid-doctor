@@ -85,7 +85,7 @@ export function HeroSection() {
                 <br />
                 «Детский врач»
               </p>
-              <h1 className="max-w-4xl text-balance text-[2rem] font-semibold leading-[0.95] tracking-tight text-white md:text-[2.6rem] xl:text-[3.2rem]">
+              <h1 className="max-w-4xl text-balance text-[2rem] font-semibold leading-[1.02] tracking-tight text-white md:text-[2.6rem] xl:text-[3.2rem]">
                 Единая цифровая среда для врачей, пациентов и управленческих команд
               </h1>
               <p className="max-w-2xl text-base leading-7 text-white/72 md:text-lg">
