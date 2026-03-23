@@ -72,7 +72,7 @@ export function ProjectCard({ project, isActive = false }: ProjectCardProps) {
 
   return (
     <Card
-      className={`group relative overflow-hidden rounded-[2rem] border bg-[linear-gradient(180deg,#ffffff_0%,#f8fbff_100%)] ring-1 ring-white transition-all duration-500 ${
+      className={`group relative overflow-hidden rounded-[2.4rem] border bg-[linear-gradient(180deg,#ffffff_0%,#f8fbff_100%)] ring-1 ring-white transition-all duration-500 ${
         isActive
           ? "border-sky-300 shadow-[0_30px_90px_rgba(14,116,144,0.18)]"
           : "border-slate-300 shadow-[0_22px_60px_rgba(15,23,42,0.09)] opacity-90"
@@ -80,17 +80,17 @@ export function ProjectCard({ project, isActive = false }: ProjectCardProps) {
     >
       <CardContent className="p-0">
         <div className="absolute inset-x-0 top-0 h-1.5 bg-[linear-gradient(90deg,#1d4ed8_0%,#0ea5e9_48%,#14b8a6_100%)]" />
-        <div className="grid lg:grid-cols-[1.02fr_1.18fr]">
-          <div className="relative min-h-[260px] overflow-hidden border-b border-slate-200 lg:min-h-[100%] lg:border-b-0 lg:border-r">
+        <div className="relative min-h-[36rem]">
+          <div className="relative min-h-[36rem] overflow-hidden">
             <Image
               src={imageSrc}
               alt={project.title}
               fill
               className="object-cover transition duration-700 group-hover:scale-105"
-              sizes="(max-width: 1024px) 100vw, 42vw"
+              sizes="100vw"
             />
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,17,31,0.12)_0%,rgba(7,17,31,0.22)_100%)]" />
-            <div className="absolute inset-x-4 top-4 flex items-start justify-between gap-3">
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,17,31,0.12)_0%,rgba(7,17,31,0.3)_40%,rgba(7,17,31,0.7)_100%)]" />
+            <div className="absolute inset-x-6 top-6 flex items-start justify-between gap-3">
               <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/18 bg-slate-950/55 text-cyan-200 shadow-[0_12px_30px_rgba(2,6,23,0.24)] backdrop-blur">
                 <Icon className="h-6 w-6" />
               </div>
@@ -104,35 +104,37 @@ export function ProjectCard({ project, isActive = false }: ProjectCardProps) {
               </div>
             </div>
 
-            <div className="absolute inset-x-4 bottom-4 rounded-[1.5rem] border border-white/12 bg-slate-950/58 p-4 text-white shadow-[0_18px_34px_rgba(2,6,23,0.22)] backdrop-blur-xl">
-              <h3 className="text-2xl font-semibold tracking-tight">{project.title}</h3>
-              <p className="mt-2 text-sm leading-6 text-slate-200">{project.summary}</p>
-            </div>
-          </div>
+            <div className="absolute inset-x-6 bottom-6 grid gap-4 xl:grid-cols-[1.15fr_0.85fr] xl:items-end">
+              <div className="rounded-[1.8rem] border border-white/12 bg-slate-950/62 p-5 text-white shadow-[0_18px_34px_rgba(2,6,23,0.22)] backdrop-blur-xl">
+                <h3 className="text-3xl font-semibold tracking-tight">{project.title}</h3>
+                <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-200">{project.summary}</p>
 
-          <div className="p-6 lg:p-7">
-            <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
-                Ключевой фокус
-              </p>
-              <p className="mt-2 text-sm leading-6 text-slate-700">{project.focus}</p>
-            </div>
-
-            <div className="mt-4 rounded-2xl border border-sky-200 bg-[linear-gradient(180deg,#f0f9ff_0%,#ecfeff_100%)] p-4 shadow-sm">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sky-700">
-                Ожидаемый эффект
-              </p>
-              <p className="mt-2 text-sm leading-6 text-slate-700">{project.effect}</p>
-            </div>
-
-            <div className="mt-5 flex flex-wrap items-center gap-3 border-t border-slate-200 pt-5 text-xs font-medium text-slate-600">
-              <div className="flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-2 shadow-sm">
-                <Wallet className="h-3.5 w-3.5" />
-                <span>{project.budget}</span>
+                <div className="mt-5 flex flex-wrap items-center gap-3 text-xs font-medium text-white/88">
+                  <div className="flex items-center gap-1.5 rounded-full border border-white/14 bg-white/10 px-3 py-2 backdrop-blur">
+                    <Wallet className="h-3.5 w-3.5" />
+                    <span>{project.budget}</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 rounded-full border border-white/14 bg-white/10 px-3 py-2 backdrop-blur">
+                    <Calendar className="h-3.5 w-3.5" />
+                    <span>{project.timeline}</span>
+                  </div>
+                </div>
               </div>
-              <div className="flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-2 shadow-sm">
-                <Calendar className="h-3.5 w-3.5" />
-                <span>{project.timeline}</span>
+
+              <div className="grid gap-3">
+                <div className="rounded-[1.5rem] border border-white/12 bg-white/92 p-4 shadow-[0_18px_34px_rgba(2,6,23,0.14)] backdrop-blur">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                    Ключевой фокус
+                  </p>
+                  <p className="mt-2 text-sm leading-6 text-slate-700">{project.focus}</p>
+                </div>
+
+                <div className="rounded-[1.5rem] border border-cyan-100 bg-[linear-gradient(180deg,rgba(240,249,255,0.98)_0%,rgba(236,254,255,0.98)_100%)] p-4 shadow-[0_18px_34px_rgba(2,6,23,0.14)] backdrop-blur">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sky-700">
+                    Ожидаемый эффект
+                  </p>
+                  <p className="mt-2 text-sm leading-6 text-slate-700">{project.effect}</p>
+                </div>
               </div>
             </div>
           </div>
