@@ -16,39 +16,39 @@ export function LoginForm() {
   return (
     <form action={formAction} className="space-y-4">
       <div className="space-y-1.5">
-        <label htmlFor="username" className="text-sm font-medium text-slate-700">
+        <label htmlFor="username" className="text-sm font-medium text-slate-800">
           Логин
         </label>
         <div className="relative">
-          <UserRound className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-slate-400" />
+          <UserRound className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-slate-500" />
           <Input
             id="username"
             name="username"
             autoComplete="username"
             placeholder="Введите логин"
-            className="h-11 rounded-2xl border-slate-200 bg-white px-11 text-[15px] shadow-[0_10px_24px_rgba(15,23,42,0.06)] backdrop-blur transition focus-visible:border-cyan-300"
+            className="h-11 rounded-2xl border-slate-300 bg-slate-50 px-11 text-[15px] text-slate-900 shadow-[0_10px_24px_rgba(15,23,42,0.05)] transition placeholder:text-slate-400 focus-visible:border-cyan-400 focus-visible:bg-white"
           />
         </div>
       </div>
 
       <div className="space-y-1.5">
-        <label htmlFor="password" className="text-sm font-medium text-slate-700">
+        <label htmlFor="password" className="text-sm font-medium text-slate-800">
           Пароль
         </label>
         <div className="relative">
-          <LockKeyhole className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-slate-400" />
+          <LockKeyhole className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-slate-500" />
           <Input
             id="password"
             name="password"
             type={showPassword ? "text" : "password"}
             autoComplete="current-password"
             placeholder="Введите пароль"
-            className="h-11 rounded-2xl border-slate-200 bg-white px-11 pr-12 text-[15px] shadow-[0_10px_24px_rgba(15,23,42,0.06)] backdrop-blur transition focus-visible:border-cyan-300"
+            className="h-11 rounded-2xl border-slate-300 bg-slate-50 px-11 pr-12 text-[15px] text-slate-900 shadow-[0_10px_24px_rgba(15,23,42,0.05)] transition placeholder:text-slate-400 focus-visible:border-cyan-400 focus-visible:bg-white"
           />
           <button
             type="button"
             onClick={() => setShowPassword((value) => !value)}
-            className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 transition hover:text-slate-700"
+            className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 transition hover:text-slate-800"
             aria-label={showPassword ? "Скрыть пароль" : "Показать пароль"}
           >
             {showPassword ? <EyeOff className="size-4" /> : <Eye className="size-4" />}
@@ -65,20 +65,20 @@ export function LoginForm() {
       <Button
         type="submit"
         disabled={isPending}
-        className="h-11 w-full rounded-2xl bg-[linear-gradient(135deg,#2f6df6_0%,#00b8d9_100%)] text-[15px] font-semibold text-white shadow-[0_18px_34px_rgba(47,109,246,0.25)] transition hover:scale-[1.01] hover:shadow-[0_22px_42px_rgba(47,109,246,0.3)] disabled:opacity-70"
+        className="h-11 w-full rounded-2xl bg-[linear-gradient(135deg,#2563eb_0%,#06b6d4_100%)] text-[15px] font-semibold text-white shadow-[0_18px_34px_rgba(37,99,235,0.32)] transition hover:scale-[1.01] hover:shadow-[0_22px_42px_rgba(37,99,235,0.38)] disabled:opacity-70"
       >
         {isPending ? <LoaderCircle className="size-4 animate-spin" /> : <LockKeyhole className="size-4" />}
         Войти в защищённый контур
       </Button>
 
-      <div className="grid gap-2.5 rounded-[1.5rem] border border-slate-200 bg-slate-50/90 p-3.5 text-[13px] text-slate-600 shadow-sm">
+      <div className="grid gap-2.5 rounded-[1.5rem] border border-cyan-100 bg-[linear-gradient(180deg,#f8fbff_0%,#eef8ff_100%)] p-3.5 text-[13px] text-slate-700 shadow-sm">
         <div className="flex items-start gap-3">
-          <ShieldCheck className="mt-0.5 size-4 text-cyan-600" />
-          <span>Доступ проверяется на сервере, а сессия хранится в защищённой служебной куки.</span>
+          <ShieldCheck className="mt-0.5 size-4 text-cyan-700" />
+          <span>Платформа обеспечивает защищённую обработку данных и контролируемый доступ к персональной информации.</span>
         </div>
         <div className="flex items-start gap-3">
-          <LockKeyhole className="mt-0.5 size-4 text-cyan-600" />
-          <span>Пароль не лежит в коде приложения и сохранён только в виде хэша в локальном файле настроек.</span>
+          <LockKeyhole className="mt-0.5 size-4 text-cyan-700" />
+          <span>Вход выполняется в безопасном контуре с мерами защиты учётных записей и сохранности персональных данных.</span>
         </div>
       </div>
     </form>

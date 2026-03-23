@@ -26,14 +26,14 @@ export function HeroSection() {
       <div className="absolute bottom-12 right-[6%] h-72 w-72 rounded-full bg-blue-500/15 blur-3xl" />
 
       <div className="relative mx-auto flex max-w-7xl flex-col gap-10 px-6 md:gap-12 md:px-10">
-        <header className="flex flex-col gap-4 rounded-full border border-white/10 bg-white/5 px-5 py-3 backdrop-blur-xl md:flex-row md:items-center md:justify-between">
+        <header className="flex flex-col gap-4 px-2 py-3 md:flex-row md:items-center md:justify-between">
           <div className="flex items-center gap-4">
-            <div className="flex size-14 items-center justify-center overflow-hidden rounded-2xl border border-white/15 bg-white/90 p-2 shadow-[0_12px_40px_rgba(148,163,184,0.15)]">
+            <div className="flex size-[4.8rem] items-center justify-center overflow-hidden rounded-[1.35rem] border border-white/18 bg-white p-1.5 shadow-[0_18px_42px_rgba(2,6,23,0.22)]">
               <Image
                 src="/images/logo.png"
                 alt="НМИЦ здоровья детей"
-                width={64}
-                height={64}
+                width={72}
+                height={72}
                 className="h-full w-full object-contain"
                 priority
               />
@@ -42,21 +42,31 @@ export function HeroSection() {
               <p className="text-xs font-medium uppercase tracking-[0.26em] text-cyan-200/80">
                 НМИЦ здоровья детей
               </p>
-              <p className="mt-1 text-sm text-white/70">
-                Российская педиатрическая AI-платформа «Детский врач»
-              </p>
+              <div className="mt-1 text-sm font-medium leading-tight text-white/78">
+                <div>Российская педиатрическая AI-платформа</div>
+                <div>«Детский врач»</div>
+              </div>
             </div>
           </div>
 
-          <nav className="flex flex-wrap items-center gap-3 text-sm text-white/72">
-            <Link href="#platform" className="transition hover:text-white">
-              Платформа
+          <nav className="flex flex-wrap items-center gap-2 text-sm">
+            <Link
+              href="#platform"
+              className="rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/76 transition hover:bg-white/8 hover:text-white"
+            >
+              ПЛАТФОРМА
             </Link>
-            <Link href="#projects" className="transition hover:text-white">
-              Инициативы
+            <Link
+              href="#projects-grid"
+              className="rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/76 transition hover:bg-white/8 hover:text-white"
+            >
+              ИНИЦИАТИВЫ
             </Link>
-            <Link href="#impact" className="transition hover:text-white">
-              Эффект
+            <Link
+              href="#impact"
+              className="rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/76 transition hover:bg-white/8 hover:text-white"
+            >
+              ЭФФЕКТ
             </Link>
             <LogoutButton />
           </nav>
@@ -71,9 +81,11 @@ export function HeroSection() {
 
             <div className="space-y-4">
               <p className="text-sm font-medium uppercase tracking-[0.24em] text-cyan-200/80">
-                Российская педиатрическая AI-платформа «Детский врач»
+                Российская педиатрическая AI-платформа
+                <br />
+                «Детский врач»
               </p>
-              <h1 className="max-w-4xl text-balance text-4xl font-semibold tracking-tight text-white md:text-5xl xl:text-6xl">
+              <h1 className="max-w-4xl text-balance text-[2rem] font-semibold leading-[0.95] tracking-tight text-white md:text-[2.6rem] xl:text-[3.2rem]">
                 Единая цифровая среда для врачей, пациентов и управленческих команд
               </h1>
               <p className="max-w-2xl text-base leading-7 text-white/72 md:text-lg">
@@ -94,7 +106,7 @@ export function HeroSection() {
                 href="#impact"
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-full border border-white/16 bg-white/8 px-6 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/12"
               >
-                Архитектура эффекта
+                Системный эффект
                 <ShieldCheck className="size-4" />
               </Link>
             </div>
@@ -124,7 +136,7 @@ export function HeroSection() {
                     Архитектура единой цифровой среды
                   </h2>
                 </div>
-                <div className="rounded-full border border-emerald-300/25 bg-emerald-300/10 px-3 py-1 text-sm text-emerald-200">
+                <div className="inline-flex min-w-[9.5rem] items-center justify-center rounded-full border border-emerald-300/25 bg-emerald-300/10 px-3 py-1 text-center text-sm text-emerald-200">
                   готово к развитию
                 </div>
               </div>
@@ -153,8 +165,8 @@ export function HeroSection() {
                   <span className="rounded-full bg-white/8 px-3 py-1">Клинические регистры</span>
                 </div>
                 <p className="mt-4 text-sm leading-6 text-white/72">
-                  Главный акцент редизайна: показать не разрозненные инициативы, а единую
-                  многоуровневую платформу с клиническим, научным и федеральным эффектом.
+                  Платформа ускоряет принятие клинических решений, объединяет данные в едином
+                  контуре и создаёт основу для масштабирования цифровых сервисов на новые направления.
                 </p>
               </div>
             </div>

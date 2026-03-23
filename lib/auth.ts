@@ -2,6 +2,19 @@ import { createHmac, scryptSync, timingSafeEqual } from "crypto"
 
 const authCookieName = "mp_session"
 const sessionMaxAgeSeconds = 60 * 60 * 8
+const maxFailedAttempts = 5
+const attemptsWindowMs = 15 * 60 * 1000
+const blockDurationMs = 15 * 60 * 1000
+const minAttemptIntervalMs = 1200
+
+interface LoginAttemptState {
+  failedAttempts: number
+  firstFailedAt: number
+  lastAttemptAt: number
+  blockedUntil?: number
+}
+
+const loginAttempts = new Map<string, LoginAttemptState>()
 
 function getRequiredEnv(name: string) {
   const value = process.env[name]
@@ -30,6 +43,32 @@ function sign(value: string) {
 
 function hashPassword(password: string, salt: string) {
   return scryptSync(password, salt, 64).toString("hex")
+}
+
+function getAttemptKey(identifier: string) {
+  return identifier.trim().toLowerCase()
+}
+
+function getAttemptState(identifier: string) {
+  const key = getAttemptKey(identifier)
+  const now = Date.now()
+  const state = loginAttempts.get(key)
+
+  if (!state) {
+    return { key, state: undefined, now }
+  }
+
+  if (state.blockedUntil && state.blockedUntil <= now) {
+    loginAttempts.delete(key)
+    return { key, state: undefined, now }
+  }
+
+  if (now - state.firstFailedAt > attemptsWindowMs && !state.blockedUntil) {
+    loginAttempts.delete(key)
+    return { key, state: undefined, now }
+  }
+
+  return { key, state, now }
 }
 
 export function verifyCredentials(username: string, password: string) {
@@ -76,6 +115,60 @@ export function verifySessionToken(token?: string) {
   } catch {
     return false
   }
+}
+
+export function getLoginAttemptStatus(identifier: string) {
+  const { state, now } = getAttemptState(identifier)
+
+  if (!state) {
+    return { blocked: false, retryAfterSeconds: 0, throttled: false }
+  }
+
+  if (state.blockedUntil && state.blockedUntil > now) {
+    return {
+      blocked: true,
+      retryAfterSeconds: Math.max(1, Math.ceil((state.blockedUntil - now) / 1000)),
+      throttled: false,
+    }
+  }
+
+  const throttled = now - state.lastAttemptAt < minAttemptIntervalMs
+
+  return { blocked: false, retryAfterSeconds: 0, throttled }
+}
+
+export function registerFailedLogin(identifier: string) {
+  const { key, state, now } = getAttemptState(identifier)
+
+  if (!state) {
+    loginAttempts.set(key, {
+      failedAttempts: 1,
+      firstFailedAt: now,
+      lastAttemptAt: now,
+    })
+    return
+  }
+
+  const failedAttempts = state.failedAttempts + 1
+  const nextState: LoginAttemptState = {
+    failedAttempts,
+    firstFailedAt: state.firstFailedAt,
+    lastAttemptAt: now,
+  }
+
+  if (failedAttempts >= maxFailedAttempts) {
+    nextState.blockedUntil = now + blockDurationMs
+  }
+
+  loginAttempts.set(key, nextState)
+}
+
+export function clearFailedLogins(identifier: string) {
+  loginAttempts.delete(getAttemptKey(identifier))
+}
+
+export async function waitForFailedLoginDelay() {
+  await new Promise((resolve) => setTimeout(resolve, 700))
 }
 
 export { authCookieName, sessionMaxAgeSeconds }
