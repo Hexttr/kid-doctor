@@ -19,21 +19,21 @@ const capabilityTiles = [
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(0,184,217,0.22),transparent_24%),radial-gradient(circle_at_80%_20%,rgba(59,130,246,0.25),transparent_28%),linear-gradient(180deg,#07111f_0%,#0b1f36_48%,#0d2946_100%)] pb-12 pt-4 text-white md:pb-16">
+    <section className="relative min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(0,184,217,0.22),transparent_24%),radial-gradient(circle_at_80%_20%,rgba(59,130,246,0.25),transparent_28%),linear-gradient(180deg,#07111f_0%,#0b1f36_48%,#0d2946_100%)] pb-8 pt-4 text-white md:pb-10">
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:88px_88px] opacity-20 [mask-image:radial-gradient(circle_at_center,black,transparent_82%)]" />
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-300/70 to-transparent" />
       <div className="absolute left-[8%] top-20 h-52 w-52 rounded-full bg-cyan-400/15 blur-3xl" />
       <div className="absolute bottom-12 right-[6%] h-72 w-72 rounded-full bg-blue-500/15 blur-3xl" />
 
-      <div className="relative mx-auto flex max-w-7xl flex-col gap-10 px-6 md:gap-12 md:px-10">
+      <div className="relative mx-auto flex min-h-[calc(100vh-1rem)] max-w-7xl flex-col justify-between gap-8 px-6 md:gap-10 md:px-10">
         <header className="flex flex-col gap-4 px-2 py-3 md:flex-row md:items-center md:justify-between">
           <div className="flex items-center gap-4">
-            <div className="flex size-[4.8rem] items-center justify-center overflow-hidden rounded-[1.35rem] border border-white/18 bg-white p-1.5 shadow-[0_18px_42px_rgba(2,6,23,0.22)]">
+            <div className="flex size-[9rem] items-center justify-center overflow-hidden rounded-[1.8rem] border border-white/18 bg-white p-2 shadow-[0_18px_42px_rgba(2,6,23,0.22)]">
               <Image
                 src="/images/logo.png"
                 alt="НМИЦ здоровья детей"
-                width={72}
-                height={72}
+                width={128}
+                height={128}
                 className="h-full w-full object-contain"
                 priority
               />
@@ -49,27 +49,29 @@ export function HeroSection() {
             </div>
           </div>
 
-          <nav className="flex flex-wrap items-center gap-2 text-sm">
-            <Link
-              href="#platform"
-              className="rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/76 transition hover:bg-white/8 hover:text-white"
-            >
-              ПЛАТФОРМА
-            </Link>
-            <Link
-              href="#projects-grid"
-              className="rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/76 transition hover:bg-white/8 hover:text-white"
-            >
-              ИНИЦИАТИВЫ
-            </Link>
-            <Link
-              href="#impact"
-              className="rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/76 transition hover:bg-white/8 hover:text-white"
-            >
-              ЭФФЕКТ
-            </Link>
+          <div className="flex flex-wrap items-center gap-4 text-sm">
+            <nav className="mr-4 flex flex-wrap items-center gap-2 text-sm">
+              <Link
+                href="#platform"
+                className="rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/76 transition hover:bg-white/8 hover:text-white"
+              >
+                ПЛАТФОРМА
+              </Link>
+              <Link
+                href="#projects"
+                className="rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/76 transition hover:bg-white/8 hover:text-white"
+              >
+                ИНИЦИАТИВЫ
+              </Link>
+              <Link
+                href="#impact"
+                className="rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/76 transition hover:bg-white/8 hover:text-white"
+              >
+                ЭФФЕКТ
+              </Link>
+            </nav>
             <LogoutButton />
-          </nav>
+          </div>
         </header>
 
         <div className="grid gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">

@@ -47,9 +47,9 @@ export function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="relative overflow-hidden bg-[linear-gradient(180deg,#eef5fb_0%,#f7fbff_18%,#ffffff_100%)] py-24"
+      className="relative overflow-hidden bg-[linear-gradient(135deg,#07111f_0%,#0b1f36_55%,#123b56_100%)] py-24 text-white"
     >
-      <div className="absolute inset-x-0 top-16 h-[28rem] bg-[radial-gradient(circle_at_center,rgba(14,165,233,0.15),transparent_58%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.14),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(59,130,246,0.16),transparent_28%)]" />
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
           <div className="space-y-6">
@@ -57,10 +57,10 @@ export function ProjectsSection() {
               Портфель инициатив
             </div>
             <div>
-              <h2 className="text-balance text-3xl font-semibold tracking-tight text-slate-950 md:text-4xl">
+              <h2 className="text-balance text-3xl font-semibold tracking-tight text-white md:text-4xl">
                 15 проектов, объединённых общей платформенной логикой
               </h2>
-              <p className="mt-4 max-w-xl text-base leading-7 text-slate-600 md:text-lg">
+              <p className="mt-4 max-w-xl text-base leading-7 text-slate-300 md:text-lg">
                 Портфель охватывает клинические сервисы, регистры, инфраструктуру данных и федеральные
                 интеграции, формируя единую цифровую среду для всей экосистемы центра.
               </p>
