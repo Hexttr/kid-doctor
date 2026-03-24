@@ -129,31 +129,22 @@ export function HeroSection() {
           <div className="relative">
             <div className="absolute inset-0 rounded-[2rem] bg-[linear-gradient(145deg,rgba(47,109,246,0.22),rgba(0,184,217,0.08),transparent)] blur-2xl" />
             <div className="relative space-y-5 rounded-[2rem] border border-white/12 bg-white/8 p-5 shadow-[0_24px_80px_rgba(2,6,23,0.35)] backdrop-blur-2xl md:p-6">
-              <div className="flex items-center justify-between gap-3">
-                <div>
-                  <p className="text-sm uppercase tracking-[0.24em] text-cyan-200/80">
-                    Архитектурная готовность
-                  </p>
-                  <h2 className="mt-2 text-xl font-semibold text-white md:text-2xl">
-                    Архитектура единой цифровой среды
-                  </h2>
-                </div>
-                <div className="inline-flex min-w-[9.5rem] items-center justify-center rounded-full border border-emerald-300/25 bg-emerald-300/10 px-3 py-1 text-center text-sm text-emerald-200">
-                  готово к развитию
-                </div>
+              <div>
+                <p className="text-sm uppercase tracking-[0.24em] text-cyan-200/80">
+                  Единая цифровая среда
+                </p>
               </div>
 
               <div className="grid gap-3 sm:grid-cols-2">
-                {capabilityTiles.map((item, index) => (
+                {capabilityTiles.map((item) => (
                   <div
                     key={item}
                     className="rounded-2xl border border-white/10 bg-slate-950/35 p-4"
                   >
-                    <div className="flex items-center justify-between text-sm text-white/64">
-                      <span>Модуль {index + 1}</span>
+                    <div className="flex justify-end text-sm text-white/64">
                       <BadgeCheck className="size-4 text-cyan-300" />
                     </div>
-                    <p className="mt-3 text-base font-medium text-white">{item}</p>
+                    <p className="mt-2 text-base font-medium text-white">{item}</p>
                   </div>
                 ))}
               </div>
