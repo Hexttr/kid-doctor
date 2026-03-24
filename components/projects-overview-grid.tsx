@@ -6,6 +6,7 @@ import {
   ArrowRight,
   Baby,
   BarChart3,
+  BadgeCheck,
   Brain,
   Dna,
   Eye,
@@ -84,8 +85,15 @@ export function ProjectsOverviewGrid() {
                 key={project.id}
                 className="group flex h-full flex-col rounded-[1.75rem] border-2 border-[#183b67] bg-[linear-gradient(180deg,#ffffff_0%,#f7fbff_100%)] p-5 shadow-[0_16px_40px_rgba(15,23,42,0.06)] transition duration-300 hover:-translate-y-1 hover:border-sky-400 hover:shadow-[0_24px_54px_rgba(14,116,144,0.12)]"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,rgba(37,99,235,0.1),rgba(20,184,166,0.14))] text-sky-700 transition group-hover:bg-slate-950 group-hover:text-white">
-                  <Icon className="size-5" />
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,rgba(37,99,235,0.1),rgba(20,184,166,0.14))] text-sky-700 transition group-hover:bg-slate-950 group-hover:text-white">
+                    <Icon className="size-5" />
+                  </div>
+                  {project.isLive ? (
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full border border-emerald-200 bg-[linear-gradient(180deg,#ecfdf5_0%,#d1fae5_100%)] text-emerald-600 shadow-[0_10px_24px_rgba(16,185,129,0.18)]">
+                      <BadgeCheck className="size-5" />
+                    </div>
+                  ) : null}
                 </div>
 
                 <h3 className="mt-4 min-h-[3rem] text-base font-semibold leading-6 text-slate-950">
@@ -96,7 +104,9 @@ export function ProjectsOverviewGrid() {
                 </p>
 
                 <Link
-                  href="#projects"
+                  href={project.externalUrl ?? "#projects"}
+                  target={project.externalUrl ? "_blank" : undefined}
+                  rel={project.externalUrl ? "noreferrer" : undefined}
                   className="mt-auto inline-flex items-center gap-2 pt-4 text-sm font-medium text-sky-700 transition hover:text-slate-950"
                 >
                   Перейти
