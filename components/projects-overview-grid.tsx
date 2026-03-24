@@ -104,9 +104,9 @@ export function ProjectsOverviewGrid() {
                 </p>
 
                 <Link
-                  href={project.externalUrl ?? "#projects"}
-                  target={project.externalUrl ? "_blank" : undefined}
-                  rel={project.externalUrl ? "noreferrer" : undefined}
+                  href={project.linkUrl ?? "#projects"}
+                  target={project.openInNewTab ? "_blank" : undefined}
+                  rel={project.openInNewTab ? "noreferrer" : undefined}
                   className="mt-auto inline-flex items-center gap-2 pt-4 text-sm font-medium text-sky-700 transition hover:text-slate-950"
                 >
                   Перейти
