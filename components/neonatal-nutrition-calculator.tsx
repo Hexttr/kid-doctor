@@ -168,8 +168,11 @@ export function NeonatalNutritionCalculator() {
   return (
     <main
       id="top"
-      className="min-h-screen bg-[linear-gradient(180deg,#031120_0%,#0a1f37_32%,#eef6ff_32%,#f8fbff_100%)]"
+      className="relative min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.18),transparent_24%),radial-gradient(circle_at_top_right,rgba(59,130,246,0.16),transparent_22%),linear-gradient(180deg,#07111f_0%,#0b1d31_42%,#0d2238_100%)]"
     >
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:84px_84px] [mask-image:radial-gradient(circle_at_center,black,transparent_86%)]" />
+      <div className="absolute left-0 top-0 h-[42rem] w-[42rem] rounded-full bg-cyan-400/10 blur-3xl" />
+      <div className="absolute bottom-0 right-0 h-[34rem] w-[34rem] rounded-full bg-blue-500/10 blur-3xl" />
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.2),transparent_24%),radial-gradient(circle_at_top_right,rgba(59,130,246,0.18),transparent_28%)]" />
         <div className="relative mx-auto max-w-7xl px-6 pb-20 pt-8 md:px-10 md:pb-24">
@@ -270,7 +273,7 @@ export function NeonatalNutritionCalculator() {
       <section className="relative -mt-12 pb-24">
         <div className="mx-auto max-w-7xl px-6 md:px-10">
           <div className="grid gap-6 xl:grid-cols-[1.2fr_0.8fr]">
-            <Card className="rounded-[2rem] border-slate-200/80 bg-white py-0 shadow-[0_28px_80px_rgba(15,23,42,0.08)]">
+            <Card className="rounded-[2rem] border-white/12 bg-white/96 py-0 shadow-[0_28px_80px_rgba(2,6,23,0.28)] backdrop-blur">
               <CardContent className="p-6 md:p-7">
                 <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
                   <div>
@@ -380,7 +383,7 @@ export function NeonatalNutritionCalculator() {
             </Card>
 
             <div className="grid gap-6">
-              <Card className="rounded-[2rem] border-slate-200/80 bg-white py-0 shadow-[0_28px_80px_rgba(15,23,42,0.08)]">
+              <Card className="rounded-[2rem] border-white/12 bg-white/96 py-0 shadow-[0_28px_80px_rgba(2,6,23,0.28)] backdrop-blur">
                 <CardContent className="p-6">
                   <div className="flex items-center gap-3">
                     <div className="flex size-11 items-center justify-center rounded-2xl bg-slate-950 text-cyan-200">
@@ -446,7 +449,7 @@ export function NeonatalNutritionCalculator() {
                 </CardContent>
               </Card>
 
-              <Card className="rounded-[2rem] border-slate-200/80 bg-white py-0 shadow-[0_28px_80px_rgba(15,23,42,0.08)]">
+              <Card className="rounded-[2rem] border-white/12 bg-white/96 py-0 shadow-[0_28px_80px_rgba(2,6,23,0.28)] backdrop-blur">
                 <CardContent className="p-6">
                   <div className="flex items-center gap-3">
                     <div className="flex size-11 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600">
@@ -550,19 +553,19 @@ export function NeonatalNutritionCalculator() {
 
       <section className="pb-24">
         <div className="mx-auto max-w-7xl px-6 md:px-10">
-          <Card className="rounded-[2rem] border-slate-200/80 bg-white py-0 shadow-[0_28px_80px_rgba(15,23,42,0.08)]">
+          <Card className="rounded-[2rem] border-white/12 bg-white/96 py-0 shadow-[0_28px_80px_rgba(2,6,23,0.28)] backdrop-blur">
             <CardContent className="grid gap-6 p-6 md:grid-cols-[0.72fr_1.28fr] md:p-7">
               <div>
                 <p className="text-sm font-medium uppercase tracking-[0.22em] text-sky-700">
-                  Методика
+                  Польза сервиса
                 </p>
                 <h2 className="mt-2 text-3xl font-semibold tracking-tight text-slate-950">
-                  Что перенесено из `calc.xlsx`
+                  Персональный контроль рациона для недоношенных детей
                 </h2>
                 <p className="mt-3 text-sm leading-6 text-slate-600 md:text-base">
-                  В основе страницы лежит точная логика исходного Excel-файла: расчёт БЖУ и
-                  калорийности по каждому продукту на 100 г/мл, суммирование за сутки и пересчёт
-                  на 1 кг веса ребёнка.
+                  Сервис помогает быстро оценить суточное питание, увидеть вклад каждого продукта и
+                  понять, насколько рацион соответствует ориентировочным потребностям ребёнка по
+                  белкам, жирам, углеводам и калорийности.
                 </p>
               </div>
 
@@ -589,8 +592,8 @@ export function NeonatalNutritionCalculator() {
                 <div className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-5">
                   <p className="text-sm font-semibold text-slate-900">Следующий шаг</p>
                   <p className="mt-2 text-sm leading-6 text-slate-600">
-                    Страницу можно расширить экспортом рациона, шаблонами назначения и печатной
-                    формой для клинического использования.
+                    Инструмент помогает быстрее принимать решения по подбору питания и поддерживать
+                    единый подход к оценке нутритивной нагрузки в клинической практике.
                   </p>
                 </div>
               </div>
