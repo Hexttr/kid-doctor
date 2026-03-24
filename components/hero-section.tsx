@@ -11,10 +11,10 @@ const metrics = [
 ]
 
 const capabilityTiles = [
-  "ИИ для клинических решений",
-  "Единая ЭМК и регистры",
-  "Федеральные интеграции",
-  "Аналитика и управление данными",
+  "ИИ для\nклинических решений",
+  "Единая ЭМК\nи регистры",
+  "Федеральные\nинтеграции",
+  "Аналитика и\nуправление данными",
 ]
 
 export function HeroSection() {
@@ -141,10 +141,10 @@ export function HeroSection() {
                     key={item}
                     className="rounded-2xl border border-white/10 bg-slate-950/35 p-4"
                   >
-                    <div className="flex justify-end text-sm text-white/64">
-                      <BadgeCheck className="size-4 text-cyan-300" />
+                    <div className="flex items-start justify-between gap-3">
+                      <p className="text-base font-medium whitespace-pre-line text-white">{item}</p>
+                      <BadgeCheck className="mt-0.5 size-4 shrink-0 text-cyan-300" />
                     </div>
-                    <p className="mt-2 text-base font-medium text-white">{item}</p>
                   </div>
                 ))}
               </div>
