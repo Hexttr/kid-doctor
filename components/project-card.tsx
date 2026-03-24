@@ -59,6 +59,7 @@ const imageMap: Record<number, string> = {
   13: "/images/projects/project-13-digital-ecosystems.png",
   14: "/images/projects/project-14-unified-emr.png",
   15: "/images/projects/project-15-egisz-integration.png",
+  16: "/images/projects/project-05-regional-statistics.png",
 }
 
 interface ProjectCardProps {

@@ -58,7 +58,7 @@ export function ProjectsSection() {
             </div>
             <div>
               <h2 className="text-balance text-3xl font-semibold tracking-tight text-slate-950 md:text-4xl">
-                15 проектов, объединённых общей платформенной логикой
+                16 проектов, объединённых общей платформенной логикой
               </h2>
               <p className="mt-4 max-w-xl text-base leading-7 text-slate-600 md:text-lg">
                 Портфель охватывает клинические сервисы, регистры, инфраструктуру данных и федеральные

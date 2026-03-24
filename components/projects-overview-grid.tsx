@@ -57,7 +57,7 @@ export function ProjectsOverviewGrid() {
             </div>
             <div>
               <h2 className="text-balance text-3xl font-semibold tracking-tight text-slate-950 md:text-4xl">
-                НАШИ ИНИЦИАТИВЫ
+                СЕРВИСЫ ПЛАТФОРМЫ
               </h2>
               <p className="mt-3 max-w-2xl text-base leading-7 text-slate-600 md:text-lg">
                 Быстрый вход в портфель: каждая плитка показывает ключевое направление и ведёт к

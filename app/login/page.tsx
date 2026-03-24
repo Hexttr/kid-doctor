@@ -99,7 +99,7 @@ export default async function LoginPage() {
 
           <div className="flex flex-wrap items-center gap-3 text-sm text-slate-300">
             <span className="rounded-full border border-white/10 bg-white/8 px-3 py-1.5 shadow-sm backdrop-blur">
-              15 стратегических инициатив
+              16 стратегических инициатив
             </span>
             <span className="rounded-full border border-white/10 bg-white/8 px-3 py-1.5 shadow-sm backdrop-blur">
               До 120 млн ₽ на проект
