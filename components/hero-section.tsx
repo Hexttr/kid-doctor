@@ -5,7 +5,7 @@ import { ArrowRight, BadgeCheck, ChevronDown, ShieldCheck, Sparkles } from "luci
 import { LogoutButton } from "@/components/logout-button"
 
 const metrics = [
-  { value: "15", label: "приоритетных инициатив" },
+  { value: "20", label: "приоритетных инициатив" },
   { value: "500+", label: "млн ₽ потенциального портфеля" },
   { value: "2026", label: "год запуска ключевых направлений" },
 ]

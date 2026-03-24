@@ -69,7 +69,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project, isActive = false }: ProjectCardProps) {
   const Icon = iconMap[project.iconName] || Brain
-  const imageSrc = imageMap[project.id]
+  const imageSrc = imageMap[project.id] ?? "/images/projects/project-13-digital-ecosystems.png"
 
   return (
     <Card
